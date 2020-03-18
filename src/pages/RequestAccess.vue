@@ -6,13 +6,9 @@
     <template #grid-content>
       <div class="grid--main">
         <div class="w-2/3">
-          <div class="text-5xl">{{ $t('~~Join Organization') }}</div>
+          <div class="text-5xl">{{ $t('invitationSignup.request_access_someone_know') }}</div>
           <div class="text-2xl font-light">
-            {{
-              $t(
-                '~~To join an organization, you should be invited by an existing member. You can also use this form to request access from an existing user by their email',
-              )
-            }}
+            {{ $t('invitationSignup.enter_existing_email_instructions') }}
           </div>
         </div>
         <form class="w-108 flex flex-col" autocomplete="off" ref="form">
@@ -21,7 +17,7 @@
             type="search"
             class="input"
             size="large"
-            :placeholder="$t('~~Email')"
+            :placeholder="$t('invitationSignup.email_placeholder')"
             required
           />
           <base-input
@@ -72,7 +68,7 @@
             class="input"
             type="search"
             v-model="requestedTo"
-            placeholder="Crisis Cleanup Member Email"
+            placeholder="$t('invitationSignup.existing_email')"
             required
           ></base-input>
 
@@ -80,7 +76,7 @@
             size="large"
             class="px-5 py-2 m-1 flex-grow"
             variant="solid"
-            :text="$t('~~Request Access')"
+            :text="$t('actions.request_access')"
             :action="requestAccess"
           />
         </form>
@@ -95,13 +91,16 @@
             <base-text variant="h1" class="mb-6">{{
               $t('~~Success')
             }}</base-text>
-            <base-text class="w-3/4 text-center" variant="body" wieght="300">{{
-              $t(
-                '~~Your request has been sent to {requested_to} at {organization} please please contact this person directly and encourage them to approve access quickly',
-              )
-            }}</base-text>
+            <base-text class="w-3/4 text-center" variant="body" wieght="300">
+            {{
+               $t('invitationSignup.request_sent', {
+                requested_to: ~~class.var,
+                organization: ~~class.var,
+              })
+            }}
+            </base-text>
             <base-button
-              :text="$t('~~Got It')"
+              :text="$t('actions.got_it')"
               size="large"
               variant="solid"
               class="mt-10"
