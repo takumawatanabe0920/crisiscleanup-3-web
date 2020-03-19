@@ -119,7 +119,7 @@
               "
             >
               <base-text :weight="400">{{
-                $t('~~Related Organizations')
+                $t('locationVue.related_organizations')
               }}</base-text>
               <div
                 v-for="organization in relatedOrganizations"
@@ -129,7 +129,7 @@
                 <ccu-icon
                   type="trash"
                   size="small"
-                  :alt="$t('~Clear Location')"
+                  :alt="$t('actions.clear_location')"
                   @click.native="
                     () => {
                       detachLocationFromOrganization(organization);
@@ -140,7 +140,7 @@
             </div>
             <div v-if="isIncidentRelated && relatedIncidents.length">
               <base-text :weight="400">{{
-                $t('~~Related Incidents')
+                $t('locationVue.related_incidents')
               }}</base-text>
               <div
                 v-for="incident in relatedIncidents"
@@ -150,7 +150,7 @@
                 <ccu-icon
                   type="trash"
                   size="small"
-                  :alt="$t('~Clear Location')"
+                  :alt="$t('actions.clear_location')"
                   @click.native="
                     () => {
                       detachLocationFromIncident(incident);
@@ -393,7 +393,7 @@ export default {
         const result = await messageBox({
           title: this.$t('locationVue.existing_location'),
           content: this.$t(
-            '~~A similar location currently exists for {organization}. Do you want to continue creating a new one, or edit the existing one?',
+            'locationVue.location_exists_instructions',
             {
               organization: value.name,
             },
