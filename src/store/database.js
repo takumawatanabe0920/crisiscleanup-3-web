@@ -21,6 +21,7 @@ import Worksite from '@/models/Worksite';
 import WorksiteRequest from '@/models/WorksiteRequest';
 import Report from '@/models/Report';
 import Team from '@/models/Team';
+import ConnectIntegration from '@/models/phone';
 import { Database } from '@vuex-orm/core';
 
 const database = new Database();
@@ -48,5 +49,8 @@ database.register(PhoneResource, {});
 database.register(PhoneDnis, {});
 database.register(Report, {});
 database.register(Team, {});
+database.register(ConnectIntegration.AgentClient, {});
+database.register(ConnectIntegration.Connection, {});
+database.register(ConnectIntegration.Contact, {});
 
 export default database;
